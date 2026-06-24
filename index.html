@@ -1,345 +1,119 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insta Ultra</title>
+  <meta charset="UTF-8">
+  <title>سایت ساده من</title>
 
-<style>
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:sans-serif;
-    background:#f4f4f4;
-    direction:rtl;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #0f172a;
+      color: white;
+    }
 
-/* HEADER */
-header{
-    background:white;
-    padding:12px;
-    text-align:center;
-    font-weight:bold;
-    border-bottom:1px solid #ddd;
-    position:sticky;
-    top:0;
-}
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-/* LOGIN */
-#login{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(120deg,#833ab4,#fd1d1d,#fcb045);
-}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-.box{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    width:280px;
-    text-align:center;
-}
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
 
-input{
-    width:100%;
-    padding:10px;
-    margin:6px 0;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
+    .hero p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
 
-/* BUTTON */
-button{
-    padding:10px;
-    border:none;
-    background:#3897f0;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-}
+    .btn {
+      background: #38bdf8;
+      color: black;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-/* APP */
-#app{display:none}
+    .btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.05);
+    }
 
-/* STORIES */
-.stories{
-    display:flex;
-    overflow-x:auto;
-    background:white;
-    padding:10px;
-    gap:10px;
-}
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
 
-.story{
-    min-width:60px;
-    text-align:center;
-    font-size:12px;
-}
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      width: 250px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
 
-.story div{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:2px solid #ff2d55;
-    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
-}
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-/* ADD POST */
-.add-post{
-    display:flex;
-    gap:5px;
-    padding:10px;
-}
-
-.add-post input{
-    flex:1;
-}
-
-/* POST */
-.post{
-    background:white;
-    margin:10px;
-    border-radius:12px;
-    overflow:hidden;
-    border:1px solid #ddd;
-}
-
-.post-head{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px;
-}
-
-.avatar{
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    background:#ccc;
-}
-
-.post-img{
-    height:200px;
-    background:linear-gradient(120deg,#89f7fe,#66a6ff);
-}
-
-/* LIKE */
-.like{
-    font-size:22px;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.like.active{
-    color:red;
-    transform:scale(1.2);
-}
-
-/* COMMENTS */
-.comment-box{
-    display:flex;
-    border-top:1px solid #eee;
-}
-
-.comment-box input{
-    flex:1;
-    border:none;
-    padding:10px;
-}
-
-.comment{
-    padding:10px;
-    font-size:14px;
-}
-
-.comment-item{
-    display:flex;
-    justify-content:space-between;
-    margin:4px 0;
-}
-
-/* NAV */
-nav{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    display:flex;
-    background:white;
-    border-top:1px solid #ddd;
-}
-
-nav button{
-    flex:1;
-    border:none;
-    background:none;
-    padding:10px;
-}
-
-/* PROFILE */
-#profile{
-    display:none;
-    padding:20px;
-    text-align:center;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1e293b;
+      margin-top: 40px;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="login">
-    <div class="box">
-        <h3>Insta Ultra 🔥</h3>
-        <input id="user" placeholder="نام کاربری">
-        <button onclick="login()">ورود</button>
+  <header>
+    🌐 سایت ساده من
+  </header>
+
+  <section class="hero">
+    <h1>سلام 👋</h1>
+    <p>این یه سایت ساده با HTML و CSS هست</p>
+    <button class="btn">شروع کن</button>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h3>طراحی ساده</h3>
+      <p>کاملاً سبک و قابل فهم</p>
     </div>
-</div>
 
-<!-- APP -->
-<div id="app">
+    <div class="card">
+      <h3>سریع</h3>
+      <p>بدون هیچ کتابخونه اضافه</p>
+    </div>
 
-<header>Insta Ultra 📸</header>
+    <div class="card">
+      <h3>قابل توسعه</h3>
+      <p>می‌تونی بعداً حرفه‌ایش کنی</p>
+    </div>
+  </section>
 
-<!-- STORIES -->
-<div class="stories">
-    <div class="story"><div></div>Ali</div>
-    <div class="story"><div></div>Sara</div>
-    <div class="story"><div></div>Reza</div>
-    <div class="story"><div></div>Nima</div>
-</div>
-
-<!-- ADD POST -->
-<div class="add-post">
-    <input id="postText" placeholder="چی تو ذهنت هست؟">
-    <button onclick="addPost()">+</button>
-</div>
-
-<!-- FEED -->
-<div id="feed"></div>
-
-<!-- PROFILE -->
-<div id="profile">
-    <h2>پروفایل 👤</h2>
-    <p id="name"></p>
-</div>
-
-<!-- NAV -->
-<nav>
-    <button onclick="home()">خانه</button>
-    <button onclick="showProfile()">پروفایل</button>
-</nav>
-
-</div>
-
-<script>
-
-let user="";
-let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-function save(){
-    localStorage.setItem("posts", JSON.stringify(posts));
-}
-
-function login(){
-    user=document.getElementById("user").value || "کاربر";
-    document.getElementById("login").style.display="none";
-    document.getElementById("app").style.display="block";
-    render();
-}
-
-function addPost(){
-    let text=document.getElementById("postText").value;
-    if(!text) return;
-
-    posts.unshift({
-        id:Date.now(),
-        user:user,
-        text:text,
-        likes:0,
-        liked:false,
-        comments:[]
-    });
-
-    save();
-    render();
-    document.getElementById("postText").value="";
-}
-
-function like(id){
-    let p=posts.find(x=>x.id===id);
-    p.liked=!p.liked;
-    p.likes += p.liked ? 1 : -1;
-    save();
-    render();
-}
-
-function addComment(id,input){
-    let p=posts.find(x=>x.id===id);
-    if(!input.value) return;
-
-    p.comments.push(input.value);
-    input.value="";
-    save();
-    render();
-}
-
-function render(){
-    let feed=document.getElementById("feed");
-    feed.innerHTML="";
-
-    posts.forEach(p=>{
-        let div=document.createElement("div");
-        div.className="post";
-
-        div.innerHTML=`
-            <div class="post-head">
-                <div class="avatar"></div>
-                <b>${p.user}</b>
-            </div>
-
-            <div class="post-img"></div>
-
-            <div style="padding:10px">
-                ${p.text}
-            </div>
-
-            <div style="padding:10px">
-                <span class="like ${p.liked?'active':''}" onclick="like(${p.id})">
-                    ❤️ ${p.likes}
-                </span>
-            </div>
-
-            <div class="comment">
-                ${p.comments.map(c=>`
-                    <div class="comment-item">
-                        <span>${c}</span>
-                    </div>
-                `).join("")}
-            </div>
-
-            <div class="comment-box">
-                <input placeholder="کامنت..." onkeydown="if(event.key==='Enter') addComment(${p.id},this)">
-            </div>
-        `;
-
-        feed.appendChild(div);
-    });
-}
-
-function showProfile(){
-    document.getElementById("feed").style.display="none";
-    document.getElementById("profile").style.display="block";
-    document.getElementById("name").innerText=user;
-}
-
-function home(){
-    document.getElementById("feed").style.display="block";
-    document.getElementById("profile").style.display="none";
-}
-
-</script>
+  <footer>
+    © 2026 - ساخته شده با HTML و CSS
+  </footer>
 
 </body>
-</html> 
+</html>
