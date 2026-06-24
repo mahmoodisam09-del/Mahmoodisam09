@@ -1,1105 +1,345 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ویترین — بازار رسانه</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Insta Ultra</title>
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --ink:    #1a1626;
-  --ink2:   #2e2845;
-  --mist:   #f5f3ff;
-  --cloud:  #ffffff;
-  --lilac:  #ede9fe;
-  --violet: #7c3aed;
-  --rose:   #db2777;
-  --amber:  #d97706;
-  --slate:  #64748b;
-  --line:   #e8e4f8;
-  --r: 20px;
-  --shadow: 0 2px 24px rgba(124,58,237,.07);
-  --shadow-hover: 0 12px 48px rgba(124,58,237,.18);
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f4f4f4;
+    direction:rtl;
 }
 
-body {
-  font-family: 'Vazirmatn', sans-serif;
-  background: var(--mist);
-  color: var(--ink);
-  min-height: 100vh;
-  line-height: 1.6;
+/* HEADER */
+header{
+    background:white;
+    padding:12px;
+    text-align:center;
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+    position:sticky;
+    top:0;
 }
 
-/* ─── HEADER ─────────────────────────────── */
-header {
-  background: var(--cloud);
-  border-bottom: 1px solid var(--line);
-  padding: 0 3rem;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* LOGIN */
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(120deg,#833ab4,#fd1d1d,#fcb045);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  text-decoration: none;
-}
-.logo-mark {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, var(--violet), var(--rose));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 1rem;
-}
-.logo-text { font-size: 1.2rem; font-weight: 800; color: var(--ink); }
-.logo-text span { color: var(--violet); }
-
-.header-right { display: flex; align-items: center; gap: 1rem; }
-
-.nav-link {
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--slate);
-  text-decoration: none;
-  padding: .3rem .6rem;
-  border-radius: 8px;
-  transition: background .15s, color .15s;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  font-family: 'Vazirmatn', sans-serif;
-}
-.nav-link:hover { background: var(--lilac); color: var(--violet); }
-
-.btn-post {
-  background: var(--violet);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: .55rem 1.3rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .88rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  transition: background .15s, transform .15s;
-}
-.btn-post:hover { background: #6d28d9; transform: translateY(-1px); }
-
-/* ─── HERO ────────────────────────────────── */
-.hero {
-  padding: 5rem 3rem 4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+.box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:280px;
+    text-align:center;
 }
 
-.hero-copy {}
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  background: var(--lilac);
-  color: var(--violet);
-  border-radius: 20px;
-  padding: .3rem .9rem;
-  font-size: .8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  letter-spacing: .03em;
-}
-.hero-h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 1rem;
-}
-.hero-h1 em {
-  font-style: normal;
-  background: linear-gradient(135deg, var(--violet), var(--rose));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero-sub {
-  font-size: 1rem;
-  color: var(--slate);
-  margin-bottom: 2rem;
-  max-width: 380px;
-  line-height: 1.75;
-}
-.hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--violet);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: .75rem 1.75rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .15s, transform .15s;
-}
-.btn-primary:hover { background: #6d28d9; transform: translateY(-2px); }
-.btn-ghost {
-  background: transparent;
-  color: var(--violet);
-  border: 1.5px solid var(--violet);
-  border-radius: 12px;
-  padding: .75rem 1.5rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background .15s;
-}
-.btn-ghost:hover { background: var(--lilac); }
-
-.hero-visual {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.hero-card {
-  background: var(--cloud);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
-}
-.hero-card:nth-child(1) { grid-column: span 2; }
-.hero-card img {
-  width: 100%; aspect-ratio: 16/9;
-  object-fit: cover;
-  display: block;
-}
-.hero-card-info {
-  padding: .75rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.hero-card-name { font-size: .82rem; font-weight: 700; }
-.hero-card-price { font-size: .8rem; color: var(--violet); font-weight: 700; }
-
-/* ─── STATS ──────────────────────────────── */
-.stats {
-  background: var(--cloud);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 1.5rem 3rem;
-}
-.stats-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-.stat { text-align: center; }
-.stat-num { font-size: 1.5rem; font-weight: 900; color: var(--violet); }
-.stat-label { font-size: .78rem; color: var(--slate); margin-top: .1rem; }
-.stat-div { width: 1px; height: 36px; background: var(--line); }
-
-/* ─── MAIN SECTION ───────────────────────── */
-.main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem;
+input{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
 }
 
-.section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-.section-label {
-  font-size: .7rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--violet);
-  margin-bottom: .3rem;
-}
-.section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); }
-
-/* ─── FILTERS ────────────────────────────── */
-.filters {
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
-}
-.filter-pill {
-  padding: .4rem 1rem;
-  border-radius: 20px;
-  border: 1.5px solid var(--line);
-  background: var(--cloud);
-  color: var(--slate);
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .15s;
-}
-.filter-pill:hover, .filter-pill.active {
-  background: var(--violet);
-  border-color: var(--violet);
-  color: #fff;
+/* BUTTON */
+button{
+    padding:10px;
+    border:none;
+    background:#3897f0;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-/* ─── GRID ───────────────────────────────── */
-.items-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+/* APP */
+#app{display:none}
+
+/* STORIES */
+.stories{
+    display:flex;
+    overflow-x:auto;
+    background:white;
+    padding:10px;
+    gap:10px;
 }
 
-/* ─── CARD ───────────────────────────────── */
-.item-card {
-  background: var(--cloud);
-  border-radius: var(--r);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-  display: flex;
-  flex-direction: column;
-}
-.item-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+.story{
+    min-width:60px;
+    text-align:center;
+    font-size:12px;
 }
 
-.card-thumb {
-  position: relative;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  background: var(--lilac);
-}
-.card-thumb img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .3s;
-}
-.item-card:hover .card-thumb img { transform: scale(1.04); }
-
-.type-badge {
-  position: absolute;
-  top: .75rem;
-  right: .75rem;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(6px);
-  border-radius: 8px;
-  padding: .25rem .65rem;
-  font-size: .72rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: .25rem;
-}
-.type-badge.vid { color: var(--violet); }
-.type-badge.img { color: var(--rose); }
-
-.card-body {
-  padding: 1.2rem 1.3rem 1.3rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: .6rem;
+.story div{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid #ff2d55;
+    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
 }
 
-.card-name {
-  font-size: .97rem;
-  font-weight: 800;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* ADD POST */
+.add-post{
+    display:flex;
+    gap:5px;
+    padding:10px;
 }
 
-.card-seller {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  font-size: .78rem;
-  color: var(--slate);
-}
-.seller-avatar {
-  width: 20px; height: 20px;
-  background: linear-gradient(135deg, var(--violet), var(--rose));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .6rem;
-  color: #fff;
-  font-weight: 800;
-  flex-shrink: 0;
+.add-post input{
+    flex:1;
 }
 
-.card-chips {
-  display: flex;
-  gap: .4rem;
-  flex-wrap: wrap;
-}
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: .25rem;
-  padding: .2rem .6rem;
-  border-radius: 6px;
-  font-size: .7rem;
-  font-weight: 600;
-}
-.chip-tg { background: #e0f2fe; color: #0284c7; }
-.chip-rb { background: #fef9c3; color: #92400e; }
-
-.card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: .85rem;
-  border-top: 1px solid var(--line);
-}
-.price-block {}
-.price-label { font-size: .65rem; color: var(--slate); }
-.price-amount { font-size: 1.1rem; font-weight: 900; color: var(--violet); }
-.price-unit { font-size: .72rem; font-weight: 500; color: var(--slate); margin-right: .15rem; }
-
-.view-btn {
-  background: var(--lilac);
-  color: var(--violet);
-  border: none;
-  border-radius: 9px;
-  padding: .45rem 1rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .8rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .15s;
-}
-.view-btn:hover { background: var(--violet); color: #fff; }
-
-/* ─── EMPTY ──────────────────────────────── */
-.empty-state {
-  text-align: center;
-  padding: 6rem 2rem;
-}
-.empty-illo {
-  width: 80px; height: 80px;
-  background: var(--lilac);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin: 0 auto 1.5rem;
-}
-.empty-state h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
-.empty-state p { font-size: .88rem; color: var(--slate); margin-bottom: 1.5rem; }
-
-/* ─── OVERLAY / MODAL ────────────────────── */
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(26,22,38,.55);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  backdrop-filter: blur(6px);
-}
-.overlay.open { display: flex; }
-
-.modal {
-  background: var(--cloud);
-  border-radius: 24px;
-  width: 100%;
-  max-width: 540px;
-  max-height: 92vh;
-  overflow-y: auto;
-  box-shadow: 0 32px 80px rgba(26,22,38,.25);
-  animation: popIn .22s cubic-bezier(.34,1.56,.64,1);
-}
-@keyframes popIn {
-  from { transform: scale(.94) translateY(16px); opacity: 0; }
-  to   { transform: scale(1) translateY(0); opacity: 1; }
+/* POST */
+.post{
+    background:white;
+    margin:10px;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #ddd;
 }
 
-.modal-head {
-  padding: 1.6rem 1.8rem 1.2rem;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  background: var(--cloud);
-  border-radius: 24px 24px 0 0;
-}
-.modal-head h2 { font-size: 1.1rem; font-weight: 800; }
-.close-x {
-  width: 34px; height: 34px;
-  border-radius: 10px;
-  background: var(--mist);
-  border: none;
-  color: var(--slate);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .15s;
-  font-family: monospace;
-}
-.close-x:hover { background: var(--lilac); color: var(--violet); }
-
-.modal-body { padding: 1.8rem; }
-
-/* form */
-.fg { margin-bottom: 1.2rem; }
-.fg:last-child { margin-bottom: 0; }
-
-label.lbl {
-  display: block;
-  font-size: .8rem;
-  font-weight: 700;
-  color: var(--ink2);
-  margin-bottom: .45rem;
-}
-.opt { color: var(--slate); font-weight: 500; font-size: .72rem; margin-right: .3rem; }
-
-input.fi, select.fi, textarea.fi {
-  width: 100%;
-  background: var(--mist);
-  border: 1.5px solid var(--line);
-  border-radius: 11px;
-  padding: .72rem 1rem;
-  color: var(--ink);
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .88rem;
-  transition: border-color .15s, background .15s;
-  direction: rtl;
-}
-input.fi:focus, select.fi:focus, textarea.fi:focus {
-  outline: none;
-  border-color: var(--violet);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(124,58,237,.1);
-}
-textarea.fi { min-height: 64px; resize: vertical; }
-select.fi option { background: #fff; }
-
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-/* upload zone */
-.drop-zone {
-  background: var(--mist);
-  border: 2px dashed var(--line);
-  border-radius: 14px;
-  padding: 2.2rem 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  transition: border-color .2s, background .2s;
-}
-.drop-zone:hover { border-color: var(--violet); background: var(--lilac); }
-.drop-zone input[type=file] {
-  position: absolute; inset: 0;
-  opacity: 0; cursor: pointer; width: 100%; height: 100%;
-}
-.drop-icon {
-  width: 52px; height: 52px;
-  background: var(--cloud);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  margin: 0 auto .75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
-.drop-text { font-size: .82rem; color: var(--slate); line-height: 1.6; }
-.drop-text strong { color: var(--violet); }
-.drop-confirm { font-size: .78rem; color: var(--violet); font-weight: 700; margin-top: .5rem; }
-
-/* contact box */
-.contact-box {
-  background: var(--mist);
-  border-radius: 14px;
-  padding: 1.2rem;
-  border: 1px solid var(--line);
-}
-.contact-box-head {
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 1rem;
+.post-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px;
 }
 
-/* divider */
-.divider {
-  height: 1px;
-  background: var(--line);
-  margin: 1.5rem 0;
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#ccc;
 }
 
-/* submit */
-.submit-btn {
-  width: 100%;
-  background: linear-gradient(135deg, var(--violet) 0%, var(--rose) 100%);
-  color: #fff;
-  border: none;
-  border-radius: 13px;
-  padding: .9rem 1.5rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: 1rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: opacity .15s, transform .15s;
-  letter-spacing: .01em;
-}
-.submit-btn:hover { opacity: .9; transform: translateY(-2px); }
-
-/* ─── DETAIL MODAL ───────────────────────── */
-.detail-media-wrap {
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  background: var(--mist);
-  aspect-ratio: 16/9;
-}
-.detail-media-wrap img, .detail-media-wrap video {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  display: block;
+.post-img{
+    height:200px;
+    background:linear-gradient(120deg,#89f7fe,#66a6ff);
 }
 
-.detail-title { font-size: 1.35rem; font-weight: 900; margin-bottom: .3rem; }
-.detail-seller { font-size: .82rem; color: var(--slate); margin-bottom: 1.2rem; display: flex; align-items: center; gap: .4rem; }
-
-.price-tag {
-  display: inline-flex;
-  align-items: baseline;
-  gap: .35rem;
-  background: var(--lilac);
-  border-radius: 12px;
-  padding: .6rem 1.2rem;
-  margin-bottom: 1.5rem;
-}
-.price-tag .big { font-size: 1.6rem; font-weight: 900; color: var(--violet); }
-.price-tag .unit { font-size: .85rem; color: var(--slate); }
-
-.info-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: .85rem;
-  margin-bottom: 1.5rem;
-}
-.info-table td { padding: .65rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.info-table td:first-child { color: var(--slate); width: 100px; font-size: .78rem; padding-left: 1rem; }
-.info-table td:last-child { font-weight: 600; word-break: break-all; }
-.info-table tr:last-child td { border-bottom: none; }
-
-.contact-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
-.cta-btn {
-  flex: 1;
-  min-width: 130px;
-  border-radius: 12px;
-  padding: .75rem 1rem;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: .88rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  transition: opacity .15s, transform .15s;
-  text-align: center;
-}
-.cta-btn:hover { opacity: .85; transform: translateY(-1px); }
-.cta-tg { background: #0ea5e9; color: #fff; }
-.cta-rb { background: #f59e0b; color: #fff; }
-.cta-card { background: var(--ink); color: #fff; }
-
-/* note */
-.buy-note {
-  background: var(--lilac);
-  border-right: 3px solid var(--violet);
-  border-radius: 8px;
-  padding: .75rem 1rem;
-  font-size: .78rem;
-  color: var(--violet);
-  line-height: 1.65;
-  margin-top: 1rem;
+/* LIKE */
+.like{
+    font-size:22px;
+    cursor:pointer;
+    transition:0.2s;
 }
 
-/* ─── TOAST ──────────────────────────────── */
-.toast {
-  position: fixed;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--ink);
-  color: #fff;
-  border-radius: 30px;
-  padding: .7rem 1.6rem;
-  font-size: .88rem;
-  font-weight: 600;
-  z-index: 999;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
-  pointer-events: none;
-  white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+.like.active{
+    color:red;
+    transform:scale(1.2);
 }
-.toast.show { transform: translateX(-50%) translateY(0); }
-.toast.success { background: #059669; }
-.toast.error { background: #dc2626; }
 
-/* ─── RESPONSIVE ─────────────────────────── */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; gap: 2rem; }
-  .hero-visual { display: none; }
-  .main { padding: 2rem 1.5rem; }
-  header { padding: 0 1.5rem; }
-  .stats { padding: 1.2rem 1.5rem; }
-  .stats-inner { gap: 1.5rem; }
+/* COMMENTS */
+.comment-box{
+    display:flex;
+    border-top:1px solid #eee;
 }
-@media (max-width: 540px) {
-  .row2 { grid-template-columns: 1fr; }
-  .modal-body { padding: 1.2rem; }
-  .modal-head { padding: 1.2rem 1.2rem 1rem; }
+
+.comment-box input{
+    flex:1;
+    border:none;
+    padding:10px;
+}
+
+.comment{
+    padding:10px;
+    font-size:14px;
+}
+
+.comment-item{
+    display:flex;
+    justify-content:space-between;
+    margin:4px 0;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    display:flex;
+    background:white;
+    border-top:1px solid #ddd;
+}
+
+nav button{
+    flex:1;
+    border:none;
+    background:none;
+    padding:10px;
+}
+
+/* PROFILE */
+#profile{
+    display:none;
+    padding:20px;
+    text-align:center;
 }
 </style>
 </head>
+
 <body>
 
-<!-- ─── HEADER ─────────────────────────────── -->
-<header>
-  <a class="logo" href="#">
-    <div class="logo-mark">🎬</div>
-    <span class="logo-text">ویترین<span>.</span></span>
-  </a>
-  <div class="header-right">
-    <button class="nav-link" onclick="openUpload()">راهنما</button>
-    <button class="btn-post" onclick="openUpload()">
-      <span>+</span> آگهی جدید
-    </button>
-  </div>
-</header>
-
-<!-- ─── HERO ────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-copy">
-    <div class="hero-eyebrow">✦ بازار رسانه فارسی</div>
-    <h1 class="hero-h1">
-      عکس و ویدیوت را<br>
-      <em>مستقیم بفروش</em>
-    </h1>
-    <p class="hero-sub">
-      آگهی بگذار، قیمت تعیین کن و از طریق تلگرام یا روبیکا مستقیماً با خریدار معامله کن — بدون واسطه.
-    </p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openUpload()">همین الان شروع کن</button>
-      <button class="btn-ghost" onclick="document.querySelector('.main').scrollIntoView({behavior:'smooth'})">آگهی‌ها را ببین</button>
+<!-- LOGIN -->
+<div id="login">
+    <div class="box">
+        <h3>Insta Ultra 🔥</h3>
+        <input id="user" placeholder="نام کاربری">
+        <button onclick="login()">ورود</button>
     </div>
-  </div>
-
-  <div class="hero-visual" id="heroVisual">
-    <!-- filled by JS -->
-  </div>
-</section>
-
-<!-- ─── STATS ──────────────────────────────── -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num" id="statCount">۰</div>
-      <div class="stat-label">آگهی فعال</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat">
-      <div class="stat-num">رایگان</div>
-      <div class="stat-label">ثبت آگهی</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat">
-      <div class="stat-num">مستقیم</div>
-      <div class="stat-label">ارتباط با خریدار</div>
-    </div>
-  </div>
 </div>
 
-<!-- ─── MAIN ───────────────────────────────── -->
-<main class="main">
-  <div class="section-head">
-    <div>
-      <div class="section-label">آگهی‌ها</div>
-      <div class="section-title">جدیدترین آثار</div>
-    </div>
-    <div class="filters">
-      <button class="filter-pill active" onclick="setFilter('all',this)">همه</button>
-      <button class="filter-pill" onclick="setFilter('image',this)">📷 عکس</button>
-      <button class="filter-pill" onclick="setFilter('video',this)">🎬 ویدیو</button>
-      <button class="filter-pill" onclick="setFilter('telegram',this)">✈️ تلگرام</button>
-      <button class="filter-pill" onclick="setFilter('rubika',this)">🟡 روبیکا</button>
-    </div>
-  </div>
+<!-- APP -->
+<div id="app">
 
-  <div class="items-grid" id="grid"></div>
+<header>Insta Ultra 📸</header>
 
-  <div class="empty-state" id="empty" style="display:none;">
-    <div class="empty-illo">📭</div>
-    <h3>هنوز آگهی‌ای نیست</h3>
-    <p>اولین نفری باش که آگهی می‌گذاری!</p>
-    <button class="btn-primary" onclick="openUpload()">+ آگهی جدید</button>
-  </div>
-</main>
-
-<!-- ─── UPLOAD MODAL ───────────────────────── -->
-<div class="overlay" id="uploadOverlay">
-  <div class="modal">
-    <div class="modal-head">
-      <h2>آگهی جدید</h2>
-      <button class="close-x" onclick="closeUpload()">✕</button>
-    </div>
-    <div class="modal-body">
-
-      <div class="fg">
-        <label class="lbl">نوع فایل</label>
-        <select class="fi" id="ftype">
-          <option value="image">📷 عکس</option>
-          <option value="video">🎬 ویدیو</option>
-        </select>
-      </div>
-
-      <div class="fg">
-        <label class="lbl">فایل خود را بارگذاری کنید</label>
-        <div class="drop-zone" id="dropZone">
-          <input type="file" id="fileIn" accept="image/*,video/*" onchange="onFile(this)">
-          <div class="drop-icon">📁</div>
-          <div class="drop-text">برای انتخاب <strong>کلیک کنید</strong><br>یا فایل را اینجا رها کنید</div>
-          <div class="drop-confirm" id="dropConfirm"></div>
-        </div>
-      </div>
-
-      <div class="fg">
-        <label class="lbl">عنوان آگهی</label>
-        <input class="fi" id="ftitle" type="text" placeholder="مثلاً: پکیج عکس معماری تهران">
-      </div>
-
-      <div class="row2">
-        <div class="fg" style="margin:0;">
-          <label class="lbl">قیمت <span style="color:var(--slate);font-size:.75rem;">(تومان)</span></label>
-          <input class="fi" id="fprice" type="number" placeholder="۵۰٬۰۰۰" min="0">
-        </div>
-        <div class="fg" style="margin:0;">
-          <label class="lbl">نام شما</label>
-          <input class="fi" id="fseller" type="text" placeholder="نام فروشنده">
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="fg">
-        <div class="contact-box">
-          <div class="contact-box-head">🔗 اطلاعات تماس و پرداخت</div>
-          <div class="fg">
-            <label class="lbl">شماره کارت <span class="opt">(اختیاری)</span></label>
-            <input class="fi" id="fcard" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" oninput="fmtCard(this)">
-          </div>
-          <div class="row2" style="margin-top:.25rem;">
-            <div class="fg" style="margin:0;">
-              <label class="lbl">آیدی تلگرام <span class="opt">(اختیاری)</span></label>
-              <input class="fi" id="ftg" type="text" placeholder="@username">
-            </div>
-            <div class="fg" style="margin:0;">
-              <label class="lbl">آیدی روبیکا <span class="opt">(اختیاری)</span></label>
-              <input class="fi" id="frb" type="text" placeholder="@username">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <button class="submit-btn" onclick="doSubmit()">ثبت آگهی ←</button>
-    </div>
-  </div>
+<!-- STORIES -->
+<div class="stories">
+    <div class="story"><div></div>Ali</div>
+    <div class="story"><div></div>Sara</div>
+    <div class="story"><div></div>Reza</div>
+    <div class="story"><div></div>Nima</div>
 </div>
 
-<!-- ─── DETAIL MODAL ───────────────────────── -->
-<div class="overlay" id="detailOverlay">
-  <div class="modal">
-    <div class="modal-head">
-      <h2>جزئیات آگهی</h2>
-      <button class="close-x" onclick="closeDetail()">✕</button>
-    </div>
-    <div class="modal-body" id="detailBody"></div>
-  </div>
+<!-- ADD POST -->
+<div class="add-post">
+    <input id="postText" placeholder="چی تو ذهنت هست؟">
+    <button onclick="addPost()">+</button>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+<!-- FEED -->
+<div id="feed"></div>
+
+<!-- PROFILE -->
+<div id="profile">
+    <h2>پروفایل 👤</h2>
+    <p id="name"></p>
+</div>
+
+<!-- NAV -->
+<nav>
+    <button onclick="home()">خانه</button>
+    <button onclick="showProfile()">پروفایل</button>
+</nav>
+
+</div>
 
 <script>
-// ── Data ──────────────────────────────────────────
-let items = [
-  {
-    id:1, type:'image', title:'عکس طبیعت ۴K — جنگل هیرکانی',
-    price:85000, seller:'علی رضایی',
-    card:'6037-9975-1234-5678', tg:'@ali_photo', rb:'',
-    url:'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80'
-  },
-  {
-    id:2, type:'video', title:'ویدیو غروب دریا — کیفیت ۴K',
-    price:200000, seller:'سارا محمدی',
-    card:'5041-7210-9876-0001', tg:'', rb:'@sara_video',
-    url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80'
-  },
-  {
-    id:3, type:'image', title:'پورتره حرفه‌ای استودیو',
-    price:60000, seller:'رضا کریمی',
-    card:'6219-8610-4444-3333', tg:'@reza_studio', rb:'@reza_rb',
-    url:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80'
-  },
-  {
-    id:4, type:'image', title:'مجموعه عکس معماری مدرن',
-    price:120000, seller:'نیلوفر احمدی',
-    card:'6037-6971-5566-7788', tg:'@nilo_arch', rb:'',
-    url:'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80'
-  },
-  {
-    id:5, type:'video', title:'تایم‌لپس شهر تهران',
-    price:180000, seller:'امیر حسینی',
-    card:'', tg:'@amir_film', rb:'@amir_h',
-    url:'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80'
-  },
-];
 
-let activeFilter = 'all';
-let fileURL = null;
+let user="";
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-// ── Render ────────────────────────────────────────
-function pNum(n) { return Number(n).toLocaleString('fa-IR'); }
-
-function render() {
-  const filtered = items.filter(i => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'image' || activeFilter === 'video') return i.type === activeFilter;
-    if (activeFilter === 'telegram') return !!i.tg;
-    if (activeFilter === 'rubika') return !!i.rb;
-    return true;
-  });
-
-  document.getElementById('statCount').textContent = pNum(items.length);
-
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('empty');
-
-  if (!filtered.length) { grid.innerHTML = ''; empty.style.display = ''; return; }
-  empty.style.display = 'none';
-
-  grid.innerHTML = filtered.map(i => `
-    <article class="item-card" onclick="openDetail(${i.id})">
-      <div class="card-thumb">
-        <img src="${i.url}" alt="${i.title}" loading="lazy">
-        <div class="type-badge ${i.type === 'video' ? 'vid' : 'img'}">
-          ${i.type === 'video' ? '🎬 ویدیو' : '📷 عکس'}
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-name">${i.title}</div>
-        <div class="card-seller">
-          <div class="seller-avatar">${i.seller.charAt(0)}</div>
-          ${i.seller}
-        </div>
-        <div class="card-chips">
-          ${i.tg ? `<span class="chip chip-tg">✈️ ${i.tg}</span>` : ''}
-          ${i.rb ? `<span class="chip chip-rb">🟡 ${i.rb}</span>` : ''}
-        </div>
-        <div class="card-footer">
-          <div class="price-block">
-            <div class="price-label">قیمت</div>
-            <div class="price-amount">${pNum(i.price)}<span class="price-unit">تومان</span></div>
-          </div>
-          <button class="view-btn" onclick="event.stopPropagation();openDetail(${i.id})">مشاهده</button>
-        </div>
-      </div>
-    </article>
-  `).join('');
-
-  renderHero();
+function save(){
+    localStorage.setItem("posts", JSON.stringify(posts));
 }
 
-function renderHero() {
-  const hv = document.getElementById('heroVisual');
-  const sample = items.slice(0, 3);
-  if (!sample.length) { hv.innerHTML = ''; return; }
-  hv.innerHTML = sample.map((i, idx) => `
-    <div class="hero-card" ${idx === 0 ? 'style="grid-column:span 2;"' : ''}>
-      <img src="${i.url}" alt="${i.title}">
-      <div class="hero-card-info">
-        <span class="hero-card-name">${i.title}</span>
-        <span class="hero-card-price">${pNum(i.price)} ت</span>
-      </div>
-    </div>
-  `).join('');
+function login(){
+    user=document.getElementById("user").value || "کاربر";
+    document.getElementById("login").style.display="none";
+    document.getElementById("app").style.display="block";
+    render();
 }
 
-function setFilter(f, btn) {
-  activeFilter = f;
-  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
+function addPost(){
+    let text=document.getElementById("postText").value;
+    if(!text) return;
+
+    posts.unshift({
+        id:Date.now(),
+        user:user,
+        text:text,
+        likes:0,
+        liked:false,
+        comments:[]
+    });
+
+    save();
+    render();
+    document.getElementById("postText").value="";
 }
 
-// ── Upload Modal ──────────────────────────────────
-function openUpload() { document.getElementById('uploadOverlay').classList.add('open'); }
-function closeUpload() { document.getElementById('uploadOverlay').classList.remove('open'); }
-
-function onFile(inp) {
-  const f = inp.files[0];
-  if (!f) return;
-  fileURL = URL.createObjectURL(f);
-  document.getElementById('dropConfirm').textContent = '✅ ' + f.name;
-  document.getElementById('ftype').value = f.type.startsWith('video/') ? 'video' : 'image';
+function like(id){
+    let p=posts.find(x=>x.id===id);
+    p.liked=!p.liked;
+    p.likes += p.liked ? 1 : -1;
+    save();
+    render();
 }
 
-function fmtCard(el) {
-  let v = el.value.replace(/\D/g,'').slice(0,16);
-  el.value = v.replace(/(.{4})/g,'$1-').replace(/-$/,'');
+function addComment(id,input){
+    let p=posts.find(x=>x.id===id);
+    if(!input.value) return;
+
+    p.comments.push(input.value);
+    input.value="";
+    save();
+    render();
 }
 
-function doSubmit() {
-  const title  = document.getElementById('ftitle').value.trim();
-  const price  = parseInt(document.getElementById('fprice').value) || 0;
-  const seller = document.getElementById('fseller').value.trim();
-  const card   = document.getElementById('fcard').value.trim();
-  const tg     = document.getElementById('ftg').value.trim();
-  const rb     = document.getElementById('frb').value.trim();
-  const type   = document.getElementById('ftype').value;
+function render(){
+    let feed=document.getElementById("feed");
+    feed.innerHTML="";
 
-  if (!title)  { toast('❗ عنوان آگهی را وارد کنید','error'); return; }
-  if (!price)  { toast('❗ قیمت را وارد کنید','error'); return; }
-  if (!seller) { toast('❗ نام فروشنده را وارد کنید','error'); return; }
+    posts.forEach(p=>{
+        let div=document.createElement("div");
+        div.className="post";
 
-  const demoUrls = {
-    image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
-    video: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80'
-  };
+        div.innerHTML=`
+            <div class="post-head">
+                <div class="avatar"></div>
+                <b>${p.user}</b>
+            </div>
 
-  items.unshift({
-    id: Date.now(), type, title, price, seller, card, tg, rb,
-    url: fileURL || demoUrls[type]
-  });
+            <div class="post-img"></div>
 
-  render();
-  closeUpload();
-  resetForm();
-  toast('✅ آگهی با موفقیت ثبت شد','success');
+            <div style="padding:10px">
+                ${p.text}
+            </div>
+
+            <div style="padding:10px">
+                <span class="like ${p.liked?'active':''}" onclick="like(${p.id})">
+                    ❤️ ${p.likes}
+                </span>
+            </div>
+
+            <div class="comment">
+                ${p.comments.map(c=>`
+                    <div class="comment-item">
+                        <span>${c}</span>
+                    </div>
+                `).join("")}
+            </div>
+
+            <div class="comment-box">
+                <input placeholder="کامنت..." onkeydown="if(event.key==='Enter') addComment(${p.id},this)">
+            </div>
+        `;
+
+        feed.appendChild(div);
+    });
 }
 
-function resetForm() {
-  ['ftitle','fprice','fseller','fcard','ftg','frb'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('dropConfirm').textContent = '';
-  document.getElementById('fileIn').value = '';
-  fileURL = null;
+function showProfile(){
+    document.getElementById("feed").style.display="none";
+    document.getElementById("profile").style.display="block";
+    document.getElementById("name").innerText=user;
 }
 
-// ── Detail Modal ──────────────────────────────────
-function openDetail(id) {
-  const i = items.find(x => x.id === id);
-  if (!i) return;
-
-  document.getElementById('detailBody').innerHTML = `
-    <div class="detail-media-wrap">
-      ${i.type === 'video'
-        ? `<video src="${i.url}" controls></video>`
-        : `<img src="${i.url}" alt="${i.title}">`}
-    </div>
-
-    <h2 class="detail-title">${i.title}</h2>
-    <div class="detail-seller">
-      <div class="seller-avatar" style="width:24px;height:24px;font-size:.72rem;">${i.seller.charAt(0)}</div>
-      ${i.seller}
-    </div>
-
-    <div class="price-tag">
-      <span class="big">${pNum(i.price)}</span>
-      <span class="unit">تومان</span>
-    </div>
-
-    <table class="info-table">
-      <tr>
-        <td>نوع فایل</td>
-        <td>${i.type === 'video' ? '🎬 ویدیو' : '📷 عکس'}</td>
-      </tr>
-      ${i.card ? `<tr><td>شماره کارت</td><td style="font-family:monospace;letter-spacing:.03em;">${i.card}</td></tr>` : ''}
-      ${i.tg ? `<tr><td>تلگرام</td><td style="color:#0284c7;">${i.tg}</td></tr>` : ''}
-      ${i.rb ? `<tr><td>روبیکا</td><td style="color:#d97706;">${i.rb}</td></tr>` : ''}
-    </table>
-
-    <div class="contact-btns">
-      ${i.tg ? `<button class="cta-btn cta-tg" onclick="copyText('${i.tg}','آیدی تلگرام')">✈️ تلگرام: ${i.tg}</button>` : ''}
-      ${i.rb ? `<button class="cta-btn cta-rb" onclick="copyText('${i.rb}','آیدی روبیکا')">🟡 روبیکا: ${i.rb}</button>` : ''}
-      ${i.card ? `<button class="cta-btn cta-card" onclick="copyText('${i.card}','شماره کارت')">💳 کپی شماره کارت</button>` : ''}
-    </div>
-
-    <div class="buy-note">
-      💡 برای خرید با فروشنده از طریق اطلاعات بالا تماس بگیرید و مبلغ را به شماره کارت واریز کنید.
-    </div>
-  `;
-
-  document.getElementById('detailOverlay').classList.add('open');
-}
-function closeDetail() { document.getElementById('detailOverlay').classList.remove('open'); }
-
-function copyText(txt, label) {
-  navigator.clipboard.writeText(txt).then(() => toast(`📋 ${label} کپی شد`,'success')).catch(() => {});
+function home(){
+    document.getElementById("feed").style.display="block";
+    document.getElementById("profile").style.display="none";
 }
 
-// ── Toast ─────────────────────────────────────────
-function toast(msg, type='') {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.className = 'toast ' + type;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 2800);
-}
-
-// ── Close on backdrop ─────────────────────────────
-['uploadOverlay','detailOverlay'].forEach(id => {
-  document.getElementById(id).addEventListener('click', function(e) {
-    if (e.target === this) this.classList.remove('open');
-  });
-});
-
-// ── Init ──────────────────────────────────────────
-render();
 </script>
+
 </body>
-</html>
+</html> 
